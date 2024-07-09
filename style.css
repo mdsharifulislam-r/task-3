@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.photo-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 20px;
+    justify-content: center;
+    
+}
+
+.card{
+    position: relative;
+    padding: 1em;
+    background: #fff;
+    display: flex;
+    width: 90%;
+    height: 170px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.card .card-image img {
+   
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+.card .card-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+    overflow: hidden;
+    
+}
+.card .card-text{
+    height: 30%;
+    margin-top: 10px;
+}
+.card:hover{
+    border: 1px solid #000;
+}
+
+.card:hover .card-image img{
+    transform: scale(1.1);
+}
+/* HTML: <div class="loader"></div> */
+.loader-sec{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
+.root
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.root .shade{
+
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.root .shade .shadeImage {
+    position: relative;
+    width: 70%;
+    height: 70vh;
+    transform: scale(0.7);
+    transition: 0.4s;
+}
+.root .shade .shadeImage.big{
+    scale: 1;
+}
+.root .shade .shadeImage img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.root .shade .toggle-button{
+    position: absolute;
+   top: 5%;
+   right: 5%;
+    font-size: 3rem;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.loader {
+  width: 50px;
+  --b: 8px; 
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000 10%,#f03355) content-box;
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+    radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+          mask-composite: intersect;
+  animation:l4 1s infinite steps(10);
+}
+@keyframes l4 {to{transform: rotate(1turn)}}
+
+.panigration{
+    width: 100%;
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.panigration .container{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.panigration .container .number-box
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    padding: 0 2em;
+    overflow-x: auto;
+}
+.panigration .container .number-box .number{
+    padding: 5px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.panigration .container button{
+    padding: 10px 8px;
+    border: none;
+}
