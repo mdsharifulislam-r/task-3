@@ -48,8 +48,17 @@ function MakeCard(item) {
     const cardImageDiv = document.createElement("div")
     cardImageDiv.classList.add("card-image")
     const cardimage = document.createElement("img")
-    cardimage.src = item?.url
-    cardImageDiv.append(cardimage)
+    if (item?.url) {
+        cardimage.src = item?.url;
+        cardImageDiv.append(cardimage);
+    } else {
+        const loader = document.createElement("div")
+        loader.classList.add("loader")
+        cardImageDiv.appendChild(loader)
+        cardImageDiv.style.display = "flex"
+        cardImageDiv.style.justifyContent="center"
+  }
+    
     const textDiv = document.createElement("div")
     textDiv.classList.add("card-text")
     
@@ -138,7 +147,7 @@ async function App() {
     const data = await FetchData()
    
     const lengthArr = await ManageLenghtArray(data, start,Stop)
-    if (!lengthArr) {
+    if (!data) {
         const loader_section = document.createElement("div")
     
         loader_section.classList.add("loader-sec")
